@@ -1,5 +1,5 @@
-<%- include('includes/head')  %>
-<%- include('includes/nav')  %>
+<%- include('includes/head') %>
+  <%- include('includes/nav') %>
     <div class="container">
       <div class="row">
         <div class="col-lg-2"></div>
@@ -9,19 +9,38 @@
 
           <%- include('includes/messages')%>
 
-          <div class="responsive-table">
-            <table class="table my-3">
-              <tr>
-                <td>Matheus</td>
-                <td>Felipe</td>
-                <td>4999328162</td>
-                <td>matheus@gmail.com</td>
-              </tr>
-            </table>
-          </div>
+            <% if(contatos.length> 0) { %>
+
+              <div class="responsive-table">
+                <table class="table my-3">
+                  <% contatos.forEach(contato=> { %>
+                    <tr>
+                      <td>
+                        <%= contato.nome %>
+                      </td>
+                      <td>
+                        <%= contato.sobrenome %>
+                      </td>
+                      <td>
+                        <%= contato.telefone %>
+                      </td>
+                      <td>
+                        <%= contato.email %>
+                      </td>
+                      <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+                      <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Deletar</a></td>
+                    </tr>
+                    <% }); %>
+                </table>
+              </div>
+
+              <% } else { %>
+                <p class="text-center lead">Você não registrou nenhum contato.</p>
+              <% } %>
+
 
         </div>
         <div class="col-lg-2"></div>
       </div>
     </div>
-<%- include('includes/footer')  %>
+    <%- include('includes/footer') %>
