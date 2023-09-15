@@ -52,7 +52,7 @@ Contato.prototype.cleanUp = function (){
     };
 }
 
-Contato.prototype.edit = async (id) =>{
+Contato.prototype.edit = async function (id) {
     if (typeof id !== 'string') return;
     this.valida()
     if(this.errors.length > 0) return;
