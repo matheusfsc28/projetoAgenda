@@ -27,7 +27,7 @@ exports.register = async (req, res) => {
 
 }
 
-exports.editIndex = async (req, res) => {
+exports.editIndex = async function (req, res) {
     if (!req.params.id) return res.render('404')
 
     const contato = await Contato.buscaPorId(req.params.id)
@@ -39,13 +39,13 @@ exports.editIndex = async (req, res) => {
 }
 
 exports.edit = async function (req, res) {
-    if (!req.params.id) return res.render('404');
-    const contato = new Contato(req.body)
-    await contato.edit(req.params.id)
+
 
     try {
+        if (!req.params.id) return res.render('404');
         const contato = new Contato(req.body)
-        await contato.register()
+        await contato.edit(req.params.id)
+
         if (contato.errors.length > 0) {
             req.flash('errors', contato.errors)
             req.session.save(() => res.redirect(req.get('referer')));
