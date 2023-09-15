@@ -38,7 +38,7 @@ exports.editIndex = async (req, res) => {
     res.render('contato', { contato });
 }
 
-exports.edit = async (req, res) => {
+exports.edit = async function (req, res) {
     if (!req.params.id) return res.render('404');
     const contato = new Contato(req.body)
     await contato.edit(req.params.id)
@@ -48,7 +48,7 @@ exports.edit = async (req, res) => {
         await contato.register()
         if (contato.errors.length > 0) {
             req.flash('errors', contato.errors)
-            req.session.save(() => res.redirect('/contato/index'))
+            req.session.save(() => res.redirect(req.get('referer')));
             return
         }
 
