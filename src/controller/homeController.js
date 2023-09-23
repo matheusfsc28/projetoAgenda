@@ -6,3 +6,4 @@ exports.index = async (req, res) => {
     return;
 }
 
+//adc servidor

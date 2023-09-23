@@ -26,3 +26,5 @@ exports.loginRequired = (req, res, next) => {
     }
     next();
 }
+
+//adc servidor

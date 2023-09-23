@@ -71,3 +71,5 @@ exports.delete = async function (req, res) {
     req.session.save(() => res.redirect(`back`))
     return
 };
+
+//adc servidor

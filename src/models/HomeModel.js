@@ -12,3 +12,5 @@ const HomeSchema = new mogoose.Schema({
 const HomeModel = mongoose.model('Home', HomeSchema);
 
 module.exports = HomeModel;
+
+//adc servidor

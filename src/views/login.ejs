@@ -10,37 +10,37 @@
           <%- include('includes/messages')%>
 
           <div class="row">
-            <div class="col-lg text-center"><h4>Faça seu cadastro</h4>
+            <div class="col-lg text-center my-5"><h4>Faça seu cadastro</h4>
             
-              <form action="/login/register" method="POST">
+              <form class="form-cadastro" action="/login/register" method="POST">
                 <input type="hidden" name="_csrf" value=<%= csrfToken%>>
                 <div class="mb-3">
                   <label>Seu email</label>
-                  <input type="email" class="form-control" name="email">
+                  <input type="email" class="form-control validar" name="email">
                 </div>
 
                 <div class="mb-3">
                   <label>Sua senha</label>
-                  <input type="password" class="form-control" name="password">
+                  <input type="password" class="form-control validar" name="password">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
               </form>
 
             </div>
-            <div class="col-lg text-center">
+            <div class="col-lg text-center my-5">
               <h4>Faça seu login</h4>
               
-              <form action="/login/login" method="POST">
+              <form class="form-login" action="/login/login" method="POST">
                 <input type="hidden" name="_csrf" value=<%= csrfToken%>>
                 <div class="mb-3">
                   <label>Seu email</label>
-                  <input type="email" class="form-control" name="email">
+                  <input type="email" class="form-control validar" name="email">
                 </div>
 
                 <div class="mb-3">
                   <label>Sua senha</label>
-                  <input type="password" class="form-control" name="password">
+                  <input type="password" class="form-control validar" name="password">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Entrar</button>
@@ -53,3 +53,4 @@
       </div>
     </div>
     <%- include('includes/footer') %>
+    
